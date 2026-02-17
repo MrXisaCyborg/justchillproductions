@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- SEO Meta Tags -->
-    <title>JustChill Production | Best Wedding Photographer in Mumbai & Navi Mumbai</title>
-    <meta name="description" content="JustChill Production is a premier wedding photography service in Mumbai. We capture real-time memories and beautiful Indian wedding functions in Mumbai, Navi Mumbai, and Thane.">
-    <meta name="keywords" content="Wedding Photographer Mumbai, Best Wedding Photography Navi Mumbai, JustChill Production, Candid Photographer Mumbai, Indian Wedding Photography, Wedding Cinematography Mumbai">
+    <!-- SEO Meta Tags for Mumbai & Navi Mumbai -->
+    <title>JustChill Production | Premier Wedding Photographer Mumbai & Navi Mumbai</title>
+    <meta name="description" content="JustChill Production: Best wedding photography services in Mumbai, Navi Mumbai, and Thane. We capture real-time memories and grand celebrations with a cinematic touch.">
+    <meta name="keywords" content="Wedding Photographer Mumbai, Best Wedding Photographer Navi Mumbai, JustChill Production, Candid Photography Mumbai, Indian Wedding Photography Thane, Cinematic Wedding Mumbai">
     <meta name="author" content="JustChill Production">
-    <meta property="og:title" content="JustChill Production | Wedding Photography Mumbai">
-    <meta property="og:description" content="Chronicle your wedding in the most beautiful manner with Mumbai's finest photographers.">
+    
+    <!-- Open Graph / SEO -->
     <meta property="og:type" content="website">
+    <meta property="og:title" content="JustChill Production | Mumbai Wedding Photography">
+    <meta property="og:description" content="Capturing your grand wedding moments in Mumbai and Navi Mumbai. Real-time memories you can relive forever.">
     <meta name="geo.region" content="IN-MH" />
-    <meta name="geo.placename" content="Mumbai, Navi Mumbai" />
+    <meta name="geo.placename" content="Mumbai, Navi Mumbai, Thane" />
 
     <!-- JC Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22black%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-weight=%22900%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22>JC</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22black%22/><text x=%2250%22 y=%2265%22 font-family=%22Syne, sans-serif%22 font-weight=%22900%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22>JC</text></svg>">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
@@ -40,10 +42,12 @@
             font-style: italic;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #0a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #333; }
+        /* Nav Spacing Fix */
+        .nav-link {
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
 
         /* Marquee Animation */
         .marquee {
@@ -57,16 +61,16 @@
             100% { transform: translateX(-50%); }
         }
 
+        /* Editorial Text Stroke */
         .outline-text {
             -webkit-text-stroke: 1px rgba(255,255,255,0.25);
             color: transparent;
-            transition: all 0.3s ease;
         }
 
-        /* Interactive Image Effects */
+        /* Interactive Image Reveal */
         .interactive-img {
             filter: grayscale(100%);
-            transition: filter 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             width: 100%;
             height: 100%;
@@ -77,14 +81,7 @@
         .interactive-img:hover, 
         .interactive-img.is-active {
             filter: grayscale(0%);
-            transform: scale(1.04);
-        }
-
-        /* Responsive Layout Fixes */
-        .container-custom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+            transform: scale(1.03);
         }
 
         .stagger-up {
@@ -97,13 +94,6 @@
             transform: translateY(0);
         }
 
-        /* Image Skeleton Loader for Vercel */
-        .img-container {
-            position: relative;
-            overflow: hidden;
-            background: #111;
-        }
-        
         .tap-hint {
             position: absolute;
             bottom: 12px;
@@ -113,115 +103,151 @@
             color: white;
             padding: 4px 10px;
             border-radius: 4px;
-            font-size: 9px;
+            font-size: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 700;
+            font-weight: 800;
             pointer-events: none;
             z-index: 10;
         }
 
-        @media (max-width: 768px) {
-            .outline-text { -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); }
+        /* Hero Text Integration for Mobile */
+        .hero-title-mobile {
+            position: absolute;
+            width: 100%;
+            z-index: 20;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            pointer-events: none;
         }
+
+        /* Custom Date Picker Styling */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation - Optimized for Mobile Alignment -->
+    <!-- Navigation - Single Line Mobile Fixed -->
     <nav class="fixed top-0 left-0 w-full z-50 px-5 py-6 md:px-10 mix-blend-difference">
         <div class="flex justify-between items-center max-w-[1600px] mx-auto">
             <div class="text-xl font-extrabold tracking-tighter text-white">JC.PROD</div>
-            <div class="flex items-center gap-4 md:gap-10 text-[10px] uppercase tracking-[0.15em] font-bold">
-                <a href="#about" class="hover:text-stone-400 transition text-white">About</a>
-                <a href="#gallery" class="hover:text-stone-400 transition text-white">Works</a>
-                <a href="#contact" class="hover:opacity-70 transition border border-white/30 px-3.5 py-1.5 rounded-full text-white">Contact</a>
+            <div class="flex items-center gap-4 sm:gap-8 md:gap-12 nav-link uppercase">
+                <a href="#about" class="hover:text-stone-400 transition">About</a>
+                <a href="#gallery" class="hover:text-stone-400 transition">Works</a>
+                <a href="#contact" class="hover:opacity-70 transition border border-white/30 px-3.5 py-1.5 rounded-full">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center relative pt-24 pb-12">
-        <div class="container-custom grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-            <div class="md:col-span-7 z-10 order-2 md:order-1">
-                <h1 class="text-5xl sm:text-7xl md:text-[90px] lg:text-[110px] leading-[0.95] font-extrabold uppercase tracking-tighter stagger-up">
-                    JustChill<br class="hidden md:block">
+    <section class="min-h-screen flex flex-col justify-center relative pt-24 pb-12 overflow-hidden">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 z-10 order-2 lg:order-1 hidden lg:block">
+                <h1 class="text-7xl lg:text-[110px] leading-none font-extrabold uppercase tracking-tighter stagger-up">
+                    JustChill<br>
                     <span class="outline-text">Production</span>
                 </h1>
-                <p class="mt-6 text-base md:text-xl text-stone-400 max-w-lg stagger-up leading-relaxed">
+                <p class="mt-6 text-xl text-stone-400 max-w-lg stagger-up">
                     Chronicle your wedding in the <span class="text-white serif-italic font-medium">most beautiful manner</span>. Based in Mumbai & Navi Mumbai.
                 </p>
                 <div class="mt-8 stagger-up">
-                     <a href="#contact" class="inline-block bg-[#d9fd52] text-black px-8 py-4 rounded-full font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-transform">Inquire Now</a>
+                     <a href="#contact" class="inline-block bg-[#d9fd52] text-black px-10 py-4 rounded-full font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all shadow-lg">Inquire Now</a>
                 </div>
             </div>
-            <div class="md:col-span-5 relative order-1 md:order-2">
-                <div class="img-container aspect-[4/5] md:aspect-[3/4] rounded-xl shadow-2xl">
-                    <!-- Photo 1 with fallback proxy -->
+
+            <div class="lg:col-span-5 relative order-1 lg:order-2">
+                <!-- Frame Container -->
+                <div class="relative aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-stone-900 stagger-up border border-white/5">
+                    <!-- Photo 1 -->
                     <img src="https://cdn0.weddingwire.in/article/9430/3_2/960/jpg/20349-indian-gifts-gautamkhullarphotography-weddingcouple.jpeg" 
                          class="interactive-img" 
-                         alt="Wedding Photography Mumbai"
-                         onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000'"
+                         alt="Wedding Grandeur Mumbai"
+                         onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200'"
                          onclick="this.classList.toggle('is-active')">
+                    
+                    <!-- Integrated Title for Mobile -->
+                    <div class="hero-title-mobile lg:hidden px-4">
+                        <h1 class="text-4xl font-extrabold uppercase tracking-tighter text-white drop-shadow-2xl">
+                            JustChill<br>
+                            <span class="outline-text">Production</span>
+                        </h1>
+                    </div>
+                    
                     <div class="tap-hint">Tap for Color</div>
+                </div>
+
+                <!-- Subtitle Mobile -->
+                <div class="lg:hidden mt-6 stagger-up text-center">
+                    <p class="text-stone-400 text-sm leading-relaxed max-w-xs mx-auto">
+                        Based in Mumbai. Relive your <span class="text-white serif-italic font-medium">real-time memories</span> time and again.
+                    </p>
+                    <a href="#contact" class="inline-block mt-4 bg-[#d9fd52] text-black px-8 py-3 rounded-full font-black uppercase text-[9px] tracking-widest">Book Your Session</a>
                 </div>
             </div>
         </div>
 
-        <!-- Marquee - Visible on Tablet/Desktop -->
+        <!-- Scroll Marquee -->
         <div class="absolute bottom-6 w-full overflow-hidden border-y border-white/5 py-4 hidden sm:block">
             <div class="marquee flex gap-20">
                 <span class="text-xl font-bold italic outline-text uppercase">Real-Time Memories</span>
+                <span class="text-xl font-bold italic uppercase">Mumbai • Navi Mumbai • Thane</span>
+                <span class="text-xl font-bold italic outline-text uppercase">Grand Indian Weddings</span>
                 <span class="text-xl font-bold italic uppercase">JustChill Production</span>
-                <span class="text-xl font-bold italic outline-text uppercase">Mumbai & Navi Mumbai</span>
-                <span class="text-xl font-bold italic uppercase">Capturing Grandiosity</span>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="py-24 md:py-40 bg-white text-black">
-        <div class="container-custom">
-            <div class="flex flex-col md:flex-row gap-10 md:gap-32 items-start">
-                <div class="md:w-1/3 stagger-up">
-                    <h2 class="text-4xl md:text-5xl font-extrabold uppercase mb-6 tracking-tighter">The Vision</h2>
-                    <div class="h-1.5 w-20 bg-black"></div>
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-32 items-start">
+                <div class="lg:w-1/3 stagger-up">
+                    <h2 class="text-4xl md:text-6xl font-extrabold uppercase mb-6 tracking-tighter">The Vision</h2>
+                    <div class="h-2 w-24 bg-black"></div>
                 </div>
-                <div class="md:w-2/3 text-2xl md:text-5xl leading-tight font-extrabold stagger-up">
-                    <p>Indian weddings are celebrated with much <span class="bg-black text-white px-2 py-0.5 inline-block">fervor</span> and grandiosity.</p>
-                    <p class="mt-8 text-stone-500 font-medium text-lg md:text-3xl leading-relaxed">If you are looking for <span class="serif-italic border-b border-stone-300">real-time memories</span> which you can relive time and again, then your search can end here.</p>
+                <div class="lg:w-2/3 text-2xl md:text-5xl leading-tight font-extrabold stagger-up">
+                    <p>Indian weddings are celebrated with much <span class="bg-black text-white px-3 py-1 inline-block">fervor</span> and grandiosity.</p>
+                    <p class="mt-10 text-stone-500 font-medium text-lg md:text-3xl leading-relaxed">If you are looking for <span class="serif-italic border-b-2 border-stone-300">real-time memories</span> which you can relive time and again, then your search can end here.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section - Fixed Grid -->
+    <!-- Visual Stories Gallery -->
     <section id="gallery" class="py-24 md:py-40">
-        <div class="container-custom">
-            <div class="mb-16 stagger-up">
-                <span class="text-[#d9fd52] text-[10px] font-bold uppercase tracking-[0.3em]">Portfolio</span>
-                <h3 class="text-5xl md:text-8xl font-extrabold uppercase mt-4 text-white tracking-tighter">Visual Stories</h3>
+        <div class="container mx-auto px-6">
+            <div class="mb-16 md:mb-24 stagger-up">
+                <span class="text-[#d9fd52] text-[10px] font-bold uppercase tracking-[0.4em]">Portfolio</span>
+                <h3 class="text-5xl md:text-9xl font-extrabold uppercase mt-4 text-white tracking-tighter">Visual Stories</h3>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
-                <!-- Image 2 Fallback -->
-                <div class="md:col-span-5 aspect-[4/5] img-container rounded-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+                <!-- Pic 2 -->
+                <div class="md:col-span-5 aspect-[4/5] rounded-3xl overflow-hidden bg-stone-900 relative shadow-2xl stagger-up">
                     <img src="https://i.pinimg.com/736x/c2/bb/c9/c2bbc92e660de6622232d51447df7978.jpg" 
                          class="interactive-img"
-                         onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=1200'"
+                         onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200'"
                          onclick="this.classList.toggle('is-active')">
                     <div class="tap-hint md:hidden">Color</div>
                 </div>
-                <!-- Image 3 Fallback -->
-                <div class="md:col-span-7 aspect-[16/9] img-container rounded-2xl self-center">
+                <!-- Pic 3 -->
+                <div class="md:col-span-7 aspect-[16/9] rounded-3xl overflow-hidden bg-stone-900 relative shadow-2xl self-center stagger-up">
                     <img src="https://i.ytimg.com/vi/umQpiAa6ANg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDbkOgTitN6sJZlOySE4DIGXzVn6w" 
                          class="interactive-img"
-                         onerror="this.src='https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=1200'"
+                         onerror="this.src='https://images.unsplash.com/photo-1519225495810-75123320d7a5?auto=format&fit=crop&q=80&w=1200'"
                          onclick="this.classList.toggle('is-active')">
                     <div class="tap-hint md:hidden">Color</div>
                 </div>
-                <!-- Image 4 Fallback (The wide one) -->
-                <div class="md:col-span-12 aspect-[16/9] img-container rounded-2xl">
+                <!-- Pic 4 (Wide) -->
+                <div class="md:col-span-12 aspect-[16/9] rounded-3xl overflow-hidden bg-stone-900 relative shadow-2xl stagger-up">
                     <img src="https://overlay.fotoowl.ai/?image=https%3A%2F%2Fstorage.fotoowl.ai%2Fevents%2F235710%2FCEQYHob4WffxltFkV62f4tiIO6p2%2Fraw%2Fv2%2F69ca6f9c-e9f0-4082-8766-17eeea1601bd%2FDJC07557.JPG&watermark=https%3A%2F%2Fstorage.fotoowl.ai%2Fuser%2FCEQYHob4WffxltFkV62f4tiIO6p2%2Flogo%2Fraw%2F48d0f571-653f-46eb-9872-4506a3f4c80e&wm_width=2600&wm_height=4000&wm_height_ratio=0.12&wm_position=8&wm_x_offset=0.013000000000000001&wm_y_offset=0.0&wm_opacity=1.0&height=1080&format=jpeg&quality=90&source_width=6000&source_height=4000" 
                          class="interactive-img"
                          onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1600'"
@@ -234,33 +260,34 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 md:py-40 bg-[#d9fd52] text-black">
-        <div class="container-custom">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-12 stagger-up text-center md:text-left">
-                    <h2 class="text-6xl md:text-[100px] font-extrabold uppercase tracking-tighter leading-[0.85] mb-4">Send Your Brief</h2>
-                    <p class="text-[10px] font-black uppercase tracking-[0.3em] opacity-40">Direct to WhatsApp • Fast Response</p>
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-12 md:mb-20 stagger-up text-center md:text-left">
+                    <h2 class="text-6xl md:text-[110px] font-extrabold uppercase tracking-tighter leading-[0.85] mb-4">Send Your Brief</h2>
+                    <p class="text-xs font-black uppercase tracking-widest opacity-60">Serving Mumbai, Navi Mumbai & Thane</p>
                 </div>
 
-                <form id="prodForm" class="space-y-10 stagger-up">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                <form id="prodForm" class="space-y-12 md:space-y-16 stagger-up">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
                         <div class="border-b-4 border-black/10 focus-within:border-black transition-all py-4">
-                            <label class="text-[10px] uppercase font-black block tracking-widest mb-1">Full Name</label>
-                            <input type="text" id="name" required class="w-full bg-transparent outline-none py-2 text-2xl font-bold placeholder-black/10" placeholder="Type here...">
+                            <label class="text-[10px] uppercase font-black block tracking-widest mb-2">Name</label>
+                            <input type="text" id="name" required class="w-full bg-transparent outline-none py-2 text-2xl font-bold placeholder-black/20" placeholder="Type here...">
                         </div>
                         <div class="border-b-4 border-black/10 focus-within:border-black transition-all py-4">
-                            <label class="text-[10px] uppercase font-black block tracking-widest mb-1">Event Date</label>
-                            <input type="text" id="date" class="w-full bg-transparent outline-none py-2 text-2xl font-bold placeholder-black/10" placeholder="DD/MM/YY">
+                            <label class="text-[10px] uppercase font-black block tracking-widest mb-2">Event Date</label>
+                            <!-- HTML Date Picker to open calendar directly -->
+                            <input type="date" id="date" required class="w-full bg-transparent outline-none py-2 text-2xl font-bold uppercase">
                         </div>
                     </div>
                     <div class="border-b-4 border-black/10 focus-within:border-black transition-all py-4">
-                        <label class="text-[10px] uppercase font-black block tracking-widest mb-1">Message</label>
-                        <textarea id="message" rows="3" required class="w-full bg-transparent outline-none py-2 text-2xl font-bold placeholder-black/10 resize-none" placeholder="Details..."></textarea>
+                        <label class="text-[10px] uppercase font-black block tracking-widest mb-2">Message</label>
+                        <textarea id="message" rows="3" required class="w-full bg-transparent outline-none py-2 text-2xl font-bold placeholder-black/20 resize-none" placeholder="Details about your vision..."></textarea>
                     </div>
                     
                     <div class="flex justify-center md:justify-start">
-                        <button type="submit" class="w-full md:w-auto bg-black text-white px-12 py-6 rounded-full font-black uppercase text-xs tracking-[0.3em] hover:scale-105 transition-all flex items-center justify-center gap-5 group shadow-2xl">
+                        <button type="submit" class="w-full md:w-auto bg-black text-white px-16 py-7 rounded-full font-black uppercase text-xs tracking-[0.3em] hover:scale-105 transition-all flex items-center justify-center gap-6 group shadow-2xl">
                             Initialize Project
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:translate-x-2 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="group-hover:translate-x-2 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
                     </div>
                 </form>
@@ -269,12 +296,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="p-10 text-center bg-black">
+    <footer class="p-12 text-center bg-black">
         <p class="text-[9px] uppercase tracking-[0.5em] text-stone-600 font-bold">&copy; 2026 JustChill Production — Mumbai & Navi Mumbai</p>
     </footer>
 
     <script>
-        // WhatsApp Send Logic
+        // WhatsApp Logic
         document.getElementById('prodForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
@@ -282,11 +309,11 @@
             const msg = document.getElementById('message').value;
             const phone = "917738780753";
             
-            const fullText = `*JUSTCHILL PRODUCTION BRIEF*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Date:* ${encodeURIComponent(date)}%0A*Message:* ${encodeURIComponent(msg)}`;
+            const fullText = `*PRODUCTION BRIEF*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Date:* ${encodeURIComponent(date)}%0A*Brief:* ${encodeURIComponent(msg)}`;
             window.open(`https://wa.me/${phone}?text=${fullText}`, '_blank');
         });
 
-        // Intersection Observer for Animations
+        // Trigger Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -297,20 +324,19 @@
 
         document.querySelectorAll('.stagger-up').forEach(el => observer.observe(el));
         
-        // Mobile Tap-to-Reveal Logic
+        // Tap to Reveal (Mobile)
         document.querySelectorAll('.interactive-img').forEach(img => {
             img.addEventListener('click', function() {
                 this.classList.toggle('is-active');
             });
         });
 
-        // Safari Mobile VH fix
-        const updateHeight = () => {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        };
-        window.addEventListener('resize', updateHeight);
-        updateHeight();
+        // Date Picker Fallback for interaction
+        const dateInput = document.getElementById('date');
+        dateInput.addEventListener('focus', () => {
+            // Some mobile browsers require a click to trigger the picker
+            try { dateInput.showPicker(); } catch(e) {}
+        });
     </script>
 </body>
 </html>
