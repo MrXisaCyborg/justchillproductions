@@ -47,7 +47,7 @@
         
         .script { font-family: 'Ms Madi', cursive; }
         
-        /* The signature wide branding font for buttons, team names, and menu */
+        /* The signature wide branding font for buttons and specific team branding */
         .branding-font { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-stretch: expanded; }
 
         /* Navigation Overlay with Glassmorphism */
@@ -206,11 +206,11 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay with Glassmorphism & Branding Font -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-12 md:hidden text-white">
-        <a href="javascript:void(0)" onclick="showPage('home')" class="branding-font text-5xl mobile-link hover:opacity-50 transition-opacity">Home</a>
-        <a href="javascript:void(0)" onclick="showPage('works')" class="branding-font text-5xl mobile-link hover:opacity-50 transition-opacity">Films</a>
-        <a href="javascript:void(0)" onclick="scrollToContact()" class="branding-font text-5xl mobile-link hover:opacity-50 transition-opacity">Contact</a>
+    <!-- Mobile Menu Overlay with Glassmorphism -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 md:hidden text-white">
+        <a href="javascript:void(0)" onclick="showPage('home')" class="serif text-3xl mobile-link hover:opacity-50 transition-opacity">Home</a>
+        <a href="javascript:void(0)" onclick="showPage('works')" class="serif text-3xl mobile-link hover:opacity-50 transition-opacity">Films</a>
+        <a href="javascript:void(0)" onclick="scrollToContact()" class="serif text-3xl mobile-link hover:opacity-50 transition-opacity">Contact</a>
     </div>
 
     <!-- MAIN HOME VIEW -->
@@ -252,7 +252,7 @@
                         <p>At <span class="branding-font text-[var(--text-primary)] text-xs tracking-widest">JustChill Production</span>, we believe that your wedding day is a once-in-a-lifetime event. We capture every pulse of emotion in a way that is cinematic and timeless.</p>
                         <p>Our approach is discreet, allowing us to document your story as it unfolds naturally. We aim to capture the absolute sincerity and clarity of your love, creating something you can relive forever.</p>
                         <div class="pt-4">
-                            <!-- Team Branding Font Applied -->
+                            <!-- Team Signature Font (Branding) -->
                             <span class="branding-font text-[var(--text-primary)] text-sm tracking-widest border-b-2 border-[var(--text-primary)] pb-2 transition-colors duration-700">— TEAM JUSTCHILL</span>
                         </div>
                     </div>
@@ -341,28 +341,18 @@
                 <p class="mt-4 uppercase tracking-[0.6em] text-[10px] font-bold text-stone-400">Mumbai & Navi Mumbai</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-                <!-- 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Grid of all 11 images with same animation -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp" class="reveal-img"></div>
-                <!-- 2 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg00014_15_215381-170565277291509.webp" class="reveal-img"></div>
-                <!-- 3 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img"></div>
-                <!-- 4 -->
                 <div class="reveal-img-container aspect-[16/9] md:col-span-2 shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg08178_15_215381-170565808232958.webp" class="reveal-img"></div>
-                <!-- 5 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg08186_15_215381-170565808248932.webp" class="reveal-img"></div>
-                <!-- 6 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg09023_15_215381-170565808550323.webp" class="reveal-img"></div>
-                <!-- 7 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd04971_15_215381-174875069960117.webp" class="reveal-img"></div>
-                <!-- 8 -->
                 <div class="reveal-img-container aspect-[16/9] md:col-span-2 shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/bmd05089_15_215381-174875069927440.webp" class="reveal-img"></div>
-                <!-- 9 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/original/960/jpg/bmd05268_15_215381-174875069775653.webp" class="reveal-img"></div>
-                <!-- 10 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd05123_15_215381-174875069818509.webp" class="reveal-img"></div>
-                <!-- 11 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/article/9430/3_2/960/jpg/20349-indian-gifts-gautamkhullarphotography-weddingcouple.jpeg" class="reveal-img"></div>
             </div>
             
@@ -398,6 +388,7 @@
             const isDark = body.classList.contains('dark-mode');
             const moonIcon = "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z";
             const sunIcon = "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z";
+            
             const newPath = isDark ? moonIcon : sunIcon;
             themePath.setAttribute('d', newPath);
             themePathM.setAttribute('d', newPath);
