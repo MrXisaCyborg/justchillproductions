@@ -8,7 +8,7 @@
     <title>JustChill Production | Premier Wedding Filmmaker Mumbai</title>
     <meta name="description" content="JustChill Production: Documenting love stories in Mumbai and Navi Mumbai with an authentic, timeless cinematic approach.">
     
-    <!-- JC Favicon - Updated to use your logo.png -->
+    <!-- JC Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,7 +64,7 @@
             position: absolute;
             inset: 0;
             opacity: 0;
-            transition: opacity: 1.5s ease-in-out;
+            transition: opacity 1.5s ease-in-out;
             background-size: cover;
             background-position: center;
         }
@@ -84,7 +84,7 @@
         }
         .reveal-img:hover, .reveal-img.active {
             filter: grayscale(0%);
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         .stagger-up {
@@ -109,16 +109,16 @@
     <!-- Header Navigation -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 mix-blend-difference">
         <div class="flex justify-between items-center max-w-[1600px] mx-auto">
-            <!-- Brand Logo -->
+            <!-- Brand Logo (Clean loading from logo.png) -->
             <div onclick="showPage('home')" class="cursor-pointer">
-                <img src="logo.png" alt="JustChill Production" class="h-8 md:h-12 w-auto invert brightness-0">
+                <img src="logo.png" alt="JustChill Production" class="h-8 md:h-12 w-auto block">
             </div>
             
             <!-- Desktop Links -->
             <div class="hidden md:flex items-center gap-10 text-[10px] uppercase tracking-[0.3em] font-bold text-white">
                 <a href="javascript:void(0)" onclick="showPage('home')" class="hover:opacity-60 transition">Home</a>
                 <a href="javascript:void(0)" onclick="showPage('works')" class="hover:opacity-60 transition">Films</a>
-                <a href="javascript:void(0)" onclick="scrollToContact()" class="hover:opacity-60 transition text-white/50">Contact Us •</a>
+                <a href="javascript:void(0)" onclick="scrollToContact()" class="hover:opacity-60 transition">Inquire •</a>
             </div>
 
             <!-- Mobile Hamburger -->
@@ -132,7 +132,6 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-10 md:hidden text-white">
-        <img src="logo.png" alt="Logo" class="h-10 w-auto mb-4 invert brightness-0">
         <a href="javascript:void(0)" onclick="showPage('home')" class="logo-font text-4xl mobile-link">Home</a>
         <a href="javascript:void(0)" onclick="showPage('works')" class="logo-font text-4xl mobile-link">Films</a>
         <a href="javascript:void(0)" onclick="scrollToContact()" class="logo-font text-4xl mobile-link">Contact</a>
@@ -140,13 +139,13 @@
 
     <!-- MAIN HOME VIEW -->
     <main id="home-view" class="page-view active">
-        <!-- Hero Slider -->
+        <!-- Hero Slider (Cycling turn-over turn) -->
         <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
             <div id="slider">
                 <div class="hero-slide active" style="background-image: url('https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp')"></div>
                 <div class="hero-slide" style="background-image: url('https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg00014_15_215381-170565277291509.webp')"></div>
                 <div class="hero-slide" style="background-image: url('https://cdn0.weddingwire.in/vendor/5381/original/960/jpg/bmd05268_15_215381-174875069775653.webp')"></div>
-                <div class="hero-slide" style="background-image: url('https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg08178_15_215381-170565808232958.webp')"></div>
+                <div class="hero-slide" style="background-image: url('https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg08186_15_215381-170565808248932.webp')"></div>
             </div>
             
             <div class="absolute inset-0 hero-overlay"></div>
@@ -162,7 +161,7 @@
             </div>
         </header>
 
-        <!-- Philosophy Section -->
+        <!-- Philosophy/Story Section -->
         <section class="py-24 md:py-48 bg-white">
             <div class="container mx-auto px-6 max-w-6xl text-center">
                 <div class="mb-24 stagger-up">
@@ -188,7 +187,7 @@
             </div>
         </section>
 
-        <!-- Signature Portfolio Preview -->
+        <!-- Preview Section -->
         <section class="py-24 bg-stone-50">
             <div class="container mx-auto px-6 text-center">
                 <div class="mb-20 stagger-up">
@@ -335,7 +334,6 @@
             }, 150);
         }
 
-        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const nav = document.querySelector('nav');
