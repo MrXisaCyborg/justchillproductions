@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Ms+Madi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,700;1,400&family=Ms+Madi&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -41,18 +41,22 @@
             transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .serif { font-family: 'Playfair Display', serif; }
-        .serif-bold { font-family: 'Playfair Display', serif; font-weight: 900; letter-spacing: -0.02em; }
+        /* High-contrast Elegant Serif (Not Bold) */
+        .serif { font-family: 'Playfair Display', serif; font-weight: 400; }
+        .serif-light { font-family: 'Playfair Display', serif; font-weight: 300; letter-spacing: -0.01em; }
+        
         .script { font-family: 'Ms Madi', cursive; }
-        .logo-font { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-stretch: expanded; }
+        
+        /* The signature wide branding font for buttons, team names, and menu */
+        .branding-font { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-stretch: expanded; }
 
         /* Navigation Overlay with Glassmorphism */
         #mobile-menu {
             clip-path: circle(0% at 95% 5%);
-            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
         #mobile-menu.active {
             clip-path: circle(150% at 95% 5%);
@@ -82,25 +86,12 @@
             transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
             pointer-events: none;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            font-family: 'Syne', sans-serif;
         }
         #interaction-toast.visible {
             transform: translateX(-50%) translateY(0);
             opacity: 1;
         }
-
-        /* Form Styling */
-        ::placeholder { color: var(--placeholder); opacity: 1; }
-        input[type="date"] { 
-            color: var(--placeholder); 
-            text-transform: uppercase; 
-            font-size: 0.875rem; 
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            background: transparent;
-        }
-        input[type="date"]:valid, input[type="date"]:focus { color: var(--text-primary); }
-        input[type="date"]::-webkit-calendar-picker-indicator { opacity: 0.4; cursor: pointer; }
-        body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
 
         /* Hero Slider */
         .hero-slide {
@@ -113,7 +104,7 @@
         }
         .hero-slide.active { opacity: 1; }
         .hero-overlay {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent 40%, var(--bg-primary));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.15), transparent 40%, var(--bg-primary));
         }
 
         /* Universal Image Animation: Grayscale to Color */
@@ -134,6 +125,20 @@
             filter: grayscale(0%);
             transform: scale(1.03);
         }
+
+        /* Form Styling */
+        ::placeholder { color: var(--placeholder); opacity: 1; }
+        input[type="date"] { 
+            color: var(--placeholder); 
+            text-transform: uppercase; 
+            font-size: 0.875rem; 
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            background: transparent;
+        }
+        input[type="date"]:valid, input[type="date"]:focus { color: var(--text-primary); }
+        input[type="date"]::-webkit-calendar-picker-indicator { opacity: 0.4; cursor: pointer; }
+        body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
 
         .stagger-up {
             opacity: 0;
@@ -187,7 +192,7 @@
                 </button>
             </div>
 
-            <!-- Mobile Navigation -->
+            <!-- Mobile Navigation Trigger -->
             <div class="md:hidden flex items-center gap-4">
                 <button onclick="toggleTheme()" class="text-white p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="theme-path-m" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z"/></svg>
@@ -201,11 +206,11 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay with Glassmorphism -->
+    <!-- Mobile Menu Overlay with Glassmorphism & Branding Font -->
     <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-12 md:hidden text-white">
-        <a href="javascript:void(0)" onclick="showPage('home')" class="logo-font text-5xl mobile-link hover:opacity-50 transition-opacity">Home</a>
-        <a href="javascript:void(0)" onclick="showPage('works')" class="logo-font text-5xl mobile-link hover:opacity-50 transition-opacity">Films</a>
-        <a href="javascript:void(0)" onclick="scrollToContact()" class="logo-font text-5xl mobile-link hover:opacity-50 transition-opacity">Contact</a>
+        <a href="javascript:void(0)" onclick="showPage('home')" class="branding-font text-5xl mobile-link hover:opacity-50 transition-opacity">Home</a>
+        <a href="javascript:void(0)" onclick="showPage('works')" class="branding-font text-5xl mobile-link hover:opacity-50 transition-opacity">Films</a>
+        <a href="javascript:void(0)" onclick="scrollToContact()" class="branding-font text-5xl mobile-link hover:opacity-50 transition-opacity">Contact</a>
     </div>
 
     <!-- MAIN HOME VIEW -->
@@ -222,8 +227,8 @@
             <div class="absolute inset-0 hero-overlay transition-colors duration-700"></div>
 
             <div class="relative z-10 text-center px-6">
-                <!-- "Documented" font style matched to reference image -->
-                <h1 class="text-4xl md:text-[140px] serif-bold tracking-tight text-white leading-none">
+                <!-- "Documented" font style (Playfair Light, NOT bold) -->
+                <h1 class="text-4xl md:text-[140px] serif-light tracking-tight text-white leading-none">
                     Documented <span class="text-xl md:text-5xl align-middle mx-1 md:mx-4 opacity-70 serif italic">with</span> 
                     <span class="script text-7xl md:text-[180px] lowercase block md:inline mt-12 md:mt-0">Love</span>
                 </h1>
@@ -244,11 +249,11 @@
                 
                 <div class="grid md:grid-cols-2 gap-20 items-center">
                     <div class="text-stone-500 leading-relaxed space-y-8 text-sm md:text-lg stagger-up text-left">
-                        <p>At <span class="logo-font text-[var(--text-primary)] text-xs tracking-widest">JustChill Production</span>, we believe that your wedding day is a once-in-a-lifetime event. We capture every pulse of emotion in a way that is cinematic and timeless.</p>
+                        <p>At <span class="branding-font text-[var(--text-primary)] text-xs tracking-widest">JustChill Production</span>, we believe that your wedding day is a once-in-a-lifetime event. We capture every pulse of emotion in a way that is cinematic and timeless.</p>
                         <p>Our approach is discreet, allowing us to document your story as it unfolds naturally. We aim to capture the absolute sincerity and clarity of your love, creating something you can relive forever.</p>
                         <div class="pt-4">
                             <!-- Team Branding Font Applied -->
-                            <span class="logo-font text-[var(--text-primary)] text-sm tracking-widest border-b-2 border-[var(--text-primary)] pb-2 transition-colors duration-700">— TEAM JUSTCHILL</span>
+                            <span class="branding-font text-[var(--text-primary)] text-sm tracking-widest border-b-2 border-[var(--text-primary)] pb-2 transition-colors duration-700">— TEAM JUSTCHILL</span>
                         </div>
                     </div>
                     <div class="stagger-up">
@@ -270,15 +275,15 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
                     <div class="md:col-span-4 aspect-[4/5] reveal-img-container shadow-sm stagger-up">
-                        <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img" alt="Portfolio Image">
+                        <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img" alt="Portfolio Item">
                     </div>
                     <div class="md:col-span-8 aspect-[16/9] reveal-img-container shadow-sm stagger-up">
-                        <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/bmd05089_15_215381-174875069927440.webp" class="reveal-img" alt="Portfolio Image Wide">
+                        <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/bmd05089_15_215381-174875069927440.webp" class="reveal-img" alt="Portfolio Wide">
                     </div>
                 </div>
                 
                 <div class="mt-20 stagger-up">
-                    <button onclick="showPage('works')" class="logo-font px-16 py-6 border border-[var(--text-primary)] text-[10px] tracking-widest hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all group">
+                    <button onclick="showPage('works')" class="branding-font px-16 py-6 border border-[var(--text-primary)] text-[10px] tracking-widest hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all group">
                         Browse All Works &nbsp; <span class="group-hover:translate-x-1 inline-block transition-transform">→</span>
                     </button>
                 </div>
@@ -291,7 +296,7 @@
                 <div class="grid md:grid-cols-2 gap-24 items-start">
                     <div class="stagger-up hidden md:block text-left">
                         <div class="reveal-img-container aspect-[4/5]">
-                            <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09935_15_215381-170565649483801.webp" class="reveal-img" alt="Cinematic Narrative Shot">
+                            <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09935_15_215381-170565649483801.webp" class="reveal-img" alt="Contact Context Shot">
                         </div>
                         <h4 class="serif text-4xl italic mt-10 text-[var(--text-primary)]">Let's start your story.</h4>
                     </div>
@@ -299,26 +304,26 @@
                     <form id="prodForm" class="space-y-12 stagger-up">
                         <div class="grid md:grid-cols-2 gap-10">
                             <div class="border-b border-[var(--border-color)] focus-within:border-[var(--text-primary)] transition-colors py-2 text-left">
-                                <label class="logo-font text-[10px] block mb-2 tracking-widest">Couple Name *</label>
+                                <label class="branding-font text-[10px] block mb-2 tracking-widest">Couple Name *</label>
                                 <input type="text" id="name" required class="w-full bg-transparent outline-none py-1 text-sm font-medium text-[var(--text-primary)]" placeholder="Type here...">
                             </div>
                             <div class="border-b border-[var(--border-color)] focus-within:border-[var(--text-primary)] transition-colors py-2 text-left">
-                                <label class="logo-font text-[10px] block mb-2 tracking-widest">Location *</label>
+                                <label class="branding-font text-[10px] block mb-2 tracking-widest">Location *</label>
                                 <input type="text" id="location" required class="w-full bg-transparent outline-none py-1 text-sm font-medium text-[var(--text-primary)]" placeholder="Type here...">
                             </div>
                         </div>
                         
                         <div class="border-b border-[var(--border-color)] focus-within:border-[var(--text-primary)] transition-colors py-2 text-left">
-                            <label class="logo-font text-[10px] block mb-2 tracking-widest">Wedding Date *</label>
+                            <label class="branding-font text-[10px] block mb-2 tracking-widest">Wedding Date *</label>
                             <input type="date" id="date" required class="w-full bg-transparent outline-none py-1 text-sm text-[var(--text-primary)]">
                         </div>
 
                         <div class="border-b border-[var(--border-color)] focus-within:border-[var(--text-primary)] transition-colors py-2 text-left">
-                            <label class="logo-font text-[10px] block mb-2 tracking-widest">Event Details *</label>
+                            <label class="branding-font text-[10px] block mb-2 tracking-widest">Event Details *</label>
                             <textarea id="message" rows="3" required class="w-full bg-transparent outline-none py-1 text-sm font-medium text-[var(--text-primary)] resize-none" placeholder="Type here..."></textarea>
                         </div>
                         
-                        <button type="submit" class="logo-font w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-7 text-[10px] tracking-[0.5em] hover:opacity-90 transition-all shadow-2xl">
+                        <button type="submit" class="branding-font w-full bg-[var(--text-primary)] text-[var(--bg-primary)] py-7 text-[10px] tracking-[0.5em] hover:opacity-90 transition-all shadow-2xl">
                             Submit Brief
                         </button>
                     </form>
@@ -331,27 +336,38 @@
     <main id="works-view" class="page-view py-32 md:py-48 min-h-screen transition-colors duration-500" style="background-color: var(--bg-primary);">
         <div class="container mx-auto px-6">
             <div class="text-center mb-24">
-                <span class="script text-4xl text-stone-400">Cinematic</span>
+                <span class="script text-4xl text-stone-400">Timeless</span>
                 <h2 class="text-6xl md:text-[130px] serif tracking-tighter mt-2">Archive</h2>
                 <p class="mt-4 uppercase tracking-[0.6em] text-[10px] font-bold text-stone-400">Mumbai & Navi Mumbai</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                <!-- 1 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp" class="reveal-img"></div>
+                <!-- 2 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg00014_15_215381-170565277291509.webp" class="reveal-img"></div>
+                <!-- 3 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img"></div>
+                <!-- 4 -->
                 <div class="reveal-img-container aspect-[16/9] md:col-span-2 shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg08178_15_215381-170565808232958.webp" class="reveal-img"></div>
+                <!-- 5 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg08186_15_215381-170565808248932.webp" class="reveal-img"></div>
+                <!-- 6 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg09023_15_215381-170565808550323.webp" class="reveal-img"></div>
+                <!-- 7 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd04971_15_215381-174875069960117.webp" class="reveal-img"></div>
+                <!-- 8 -->
                 <div class="reveal-img-container aspect-[16/9] md:col-span-2 shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/bmd05089_15_215381-174875069927440.webp" class="reveal-img"></div>
+                <!-- 9 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/original/960/jpg/bmd05268_15_215381-174875069775653.webp" class="reveal-img"></div>
+                <!-- 10 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd05123_15_215381-174875069818509.webp" class="reveal-img"></div>
+                <!-- 11 -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/article/9430/3_2/960/jpg/20349-indian-gifts-gautamkhullarphotography-weddingcouple.jpeg" class="reveal-img"></div>
             </div>
             
             <div class="mt-40 text-center">
-                <button onclick="showPage('home')" class="logo-font text-[10px] tracking-[0.5em] border-b-2 border-[var(--text-primary)] pb-2 hover:opacity-50 transition-all">← Back to Home</button>
+                <button onclick="showPage('home')" class="branding-font text-[10px] tracking-[0.5em] border-b-2 border-[var(--text-primary)] pb-2 hover:opacity-50 transition-all">← Back to Home</button>
             </div>
         </div>
     </main>
@@ -366,25 +382,22 @@
                 <a href="javascript:void(0)" onclick="showPage('works')">Portfolio</a>
                 <a href="javascript:void(0)" onclick="scrollToContact()">Inquire</a>
             </div>
-            <div class="logo-font text-[9px] text-stone-400 tracking-[0.6em] font-medium uppercase">
-                Candid | Cinematic | Timeless — MUMBAI & NAVI MUMBAI
+            <div class="branding-font text-[9px] text-stone-400 tracking-[0.6em] font-medium uppercase">
+                CANDID | CINEMATIC | TIMELESS — MUMBAI & NAVI MUMBAI
             </div>
         </div>
     </footer>
 
     <script>
-        // Theme Toggle Logic
+        // Theme Toggle
         function toggleTheme() {
             const body = document.body;
             const themePath = document.getElementById('theme-path');
             const themePathM = document.getElementById('theme-path-m');
-            
             body.classList.toggle('dark-mode');
-            
             const isDark = body.classList.contains('dark-mode');
             const moonIcon = "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z";
             const sunIcon = "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z";
-            
             const newPath = isDark ? moonIcon : sunIcon;
             themePath.setAttribute('d', newPath);
             themePathM.setAttribute('d', newPath);
@@ -408,7 +421,6 @@
                 target.classList.add('active');
                 window.scrollTo(0, 0);
             }
-            
             const mobileMenu = document.getElementById('mobile-menu');
             const nav = document.querySelector('nav');
             if (mobileMenu) mobileMenu.classList.remove('active');
@@ -443,7 +455,7 @@
             }, 1200);
         });
 
-        // WhatsApp Form Logic
+        // WhatsApp Logic
         document.getElementById('prodForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
