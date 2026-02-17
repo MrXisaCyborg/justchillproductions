@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
     <meta name="description" content="JustChill Production: Documenting love stories in Mumbai and Navi Mumbai with an authentic, timeless cinematic approach.">
     
     <!-- JC Favicon -->
-    <link rel="icon" type="image/png" href="84ed4020-bc23-4765-9a29-04cde79dfc31.png">
+    <link rel="icon" type="image/png" href="./84ed4020-bc23-4765-9a29-04cde79dfc31.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Ms+Madi&display=swap" rel="stylesheet">
@@ -85,7 +84,7 @@
         }
         .reveal-img:hover, .reveal-img.active {
             filter: grayscale(0%);
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         .stagger-up {
@@ -110,10 +109,9 @@
     <!-- Header Navigation -->
     <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 mix-blend-difference">
         <div class="flex justify-between items-center max-w-[1600px] mx-auto">
-            <!-- Brand Logo -->
+            <!-- Brand Logo Image -->
             <div onclick="showPage('home')" class="cursor-pointer">
-                <img src="84ed4020-bc23-4765-9a29-04cde79dfc31.png" alt="JustChill Production" class="h-8 md:h-12 w-auto invert brightness-0" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <span class="hidden logo-font text-white text-xl">JC.PROD</span>
+                <img src="./84ed4020-bc23-4765-9a29-04cde79dfc31.png" alt="JustChill Production" class="h-8 md:h-12 w-auto object-contain invert brightness-0">
             </div>
             
             <!-- Desktop Links -->
@@ -141,7 +139,7 @@
 
     <!-- MAIN HOME VIEW -->
     <main id="home-view" class="page-view active">
-        <!-- Hero Slider (Changes images every 4s) -->
+        <!-- Hero Slider -->
         <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
             <div id="slider">
                 <div class="hero-slide active" style="background-image: url('https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp')"></div>
@@ -163,7 +161,7 @@
             </div>
         </header>
 
-        <!-- Philosophy -->
+        <!-- Philosophy Section -->
         <section class="py-24 md:py-48 bg-white">
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="text-center mb-24 stagger-up">
@@ -189,11 +187,11 @@
             </div>
         </section>
 
-        <!-- Home Preview Portfolio -->
+        <!-- Featured Work Preview -->
         <section class="py-24 bg-stone-50">
             <div class="container mx-auto px-6 text-center">
                 <div class="mb-20 stagger-up">
-                    <span class="script text-3xl text-stone-400">Featured Work</span>
+                    <span class="script text-3xl text-stone-400">Signature Work</span>
                     <h3 class="text-5xl md:text-9xl serif mt-2">Portfolio</h3>
                 </div>
                 
@@ -207,8 +205,8 @@
                 </div>
                 
                 <div class="mt-20 stagger-up">
-                    <button onclick="showPage('works')" class="px-12 py-5 border border-black uppercase text-[10px] font-black tracking-widest hover:bg-black hover:text-white transition-all">
-                        Browse All Works &nbsp; →
+                    <button onclick="showPage('works')" class="px-12 py-5 border border-black uppercase text-[10px] font-black tracking-widest hover:bg-black hover:text-white transition-all group">
+                        Browse All Works &nbsp; <span class="group-hover:translate-x-1 inline-block transition-transform">→</span>
                     </button>
                 </div>
             </div>
@@ -219,7 +217,7 @@
             <div class="container mx-auto px-6 max-w-6xl">
                 <div class="grid md:grid-cols-2 gap-24 items-start">
                     <div class="stagger-up hidden md:block">
-                        <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd05123_15_215381-174875069818509.webp" class="rounded-sm grayscale opacity-80" alt="Cinematic Shot">
+                        <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd05123_15_215381-174875069818509.webp" class="rounded-sm grayscale opacity-80" alt="Cinematic View">
                         <h4 class="serif text-3xl italic mt-8 text-black">Let's start your story.</h4>
                     </div>
                     
@@ -254,53 +252,32 @@
         </section>
     </main>
 
-    <!-- FULL WORKS PAGE VIEW (All 11 images included) -->
+    <!-- FULL WORKS ARCHIVE VIEW -->
     <main id="works-view" class="page-view py-32 md:py-48 bg-white min-h-screen">
         <div class="container mx-auto px-6">
             <div class="text-center mb-24">
-                <span class="script text-4xl text-stone-400">The Collection</span>
+                <span class="script text-4xl text-stone-400">Timeless</span>
                 <h2 class="text-6xl md:text-[120px] serif tracking-tighter mt-2">Archive</h2>
-                <p class="mt-4 uppercase tracking-[0.5em] text-[10px] font-bold text-stone-400">All Visual Stories — Mumbai</p>
+                <p class="mt-4 uppercase tracking-[0.5em] text-[10px] font-bold text-stone-400">All Visual Stories — Mumbai & Navi Mumbai</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg00014_15_215381-170565277291509.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[16/9] md:col-span-2 overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg08178_15_215381-170565808232958.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg08186_15_215381-170565808248932.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg09023_15_215381-170565808550323.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd04971_15_215381-174875069960117.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[16/9] md:col-span-2 overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/bmd05089_15_215381-174875069927440.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/original/960/jpg/bmd05268_15_215381-174875069775653.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd05123_15_215381-174875069818509.webp" class="reveal-img">
-                </div>
-                <div class="aspect-[4/5] overflow-hidden rounded-sm shadow-xl">
-                    <img src="https://cdn0.weddingwire.in/article/9430/3_2/960/jpg/20349-indian-gifts-gautamkhullarphotography-weddingcouple.jpeg" class="reveal-img">
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                <!-- Density focused grid -->
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg00014_15_215381-170565277291509.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img"></div>
+                <div class="aspect-[16/9] md:col-span-2 overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg08178_15_215381-170565808232958.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg08186_15_215381-170565808248932.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8yg09023_15_215381-170565808550323.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd04971_15_215381-174875069960117.webp" class="reveal-img"></div>
+                <div class="aspect-[16/9] md:col-span-2 overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/bmd05089_15_215381-174875069927440.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/original/960/jpg/bmd05268_15_215381-174875069775653.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/bmd05123_15_215381-174875069818509.webp" class="reveal-img"></div>
+                <div class="aspect-[4/5] overflow-hidden reveal-img rounded-sm shadow-lg"><img src="https://cdn0.weddingwire.in/article/9430/3_2/960/jpg/20349-indian-gifts-gautamkhullarphotography-weddingcouple.jpeg" class="reveal-img"></div>
             </div>
             
-            <div class="mt-24 text-center">
-                <button onclick="showPage('home')" class="text-xs font-black uppercase tracking-[0.4em] border-b border-black pb-2">← Back to Home</button>
+            <div class="mt-32 text-center">
+                <button onclick="showPage('home')" class="text-xs font-black uppercase tracking-[0.4em] border-b border-black pb-2 hover:opacity-50 transition-opacity">← Back to Journey</button>
             </div>
         </div>
     </main>
@@ -308,12 +285,12 @@
     <!-- Footer -->
     <footer class="py-24 bg-stone-50 border-t border-stone-100">
         <div class="container mx-auto px-6 text-center">
-            <img src="84ed4020-bc23-4765-9a29-04cde79dfc31.png" alt="JustChill Production" class="h-8 md:h-10 w-auto mx-auto mb-12" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-            <span class="hidden logo-font text-black text-xl mb-12">JC.PROD</span>
+            <!-- Footer Logo -->
+            <img src="./84ed4020-bc23-4765-9a29-04cde79dfc31.png" alt="JustChill Production" class="h-10 md:h-14 w-auto mx-auto mb-12 block">
+            
             <div class="flex flex-wrap justify-center gap-10 text-[10px] uppercase font-bold tracking-widest mb-16 opacity-60">
                 <a href="javascript:void(0)" onclick="showPage('home')">Home</a>
                 <a href="javascript:void(0)" onclick="showPage('works')">Portfolio</a>
-                <a href="javascript:void(0)">Philosophy</a>
                 <a href="javascript:void(0)" onclick="scrollToContact()">Inquire</a>
             </div>
             <div class="text-[9px] text-stone-400 uppercase tracking-[0.5em] font-medium">
@@ -343,6 +320,7 @@
                 window.scrollTo(0, 0);
             }
             
+            // Close mobile menu
             const mobileMenu = document.getElementById('mobile-menu');
             const nav = document.querySelector('nav');
             mobileMenu.classList.remove('active');
@@ -390,14 +368,14 @@
 
         document.querySelectorAll('.stagger-up').forEach(el => observer.observe(el));
         
-        // Tap Reveal Logic
+        // Tap/Click Reveal Logic
         document.querySelectorAll('.reveal-img').forEach(img => {
             img.addEventListener('click', function() {
                 this.classList.toggle('active');
             });
         });
 
-        // Calendar Focus Picker
+        // Calendar Picker Fix
         const dateInput = document.getElementById('date');
         dateInput.addEventListener('click', () => {
             try { dateInput.showPicker(); } catch(e) {}
