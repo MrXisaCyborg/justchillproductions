@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Ms+Madi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Ms+Madi&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -42,15 +42,17 @@
         }
 
         .serif { font-family: 'Playfair Display', serif; }
+        .serif-bold { font-family: 'Playfair Display', serif; font-weight: 900; letter-spacing: -0.02em; }
         .script { font-family: 'Ms Madi', cursive; }
-        /* The signature wide branding font requested */
         .logo-font { font-family: 'Syne', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; font-stretch: expanded; }
 
-        /* Navigation Overlay */
+        /* Navigation Overlay with Glassmorphism */
         #mobile-menu {
             clip-path: circle(0% at 95% 5%);
-            transition: clip-path 0.7s cubic-bezier(0.77, 0, 0.175, 1);
-            background-color: #000;
+            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
         }
         #mobile-menu.active {
             clip-path: circle(150% at 95% 5%);
@@ -80,7 +82,6 @@
             transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
             pointer-events: none;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            font-family: 'Syne', sans-serif;
         }
         #interaction-toast.visible {
             transform: translateX(-50%) translateY(0);
@@ -101,7 +102,7 @@
         input[type="date"]::-webkit-calendar-picker-indicator { opacity: 0.4; cursor: pointer; }
         body.dark-mode input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); }
 
-        /* Hero Crossfade Slider */
+        /* Hero Slider */
         .hero-slide {
             position: absolute;
             inset: 0;
@@ -200,11 +201,11 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-12 md:hidden text-white">
-        <a href="javascript:void(0)" onclick="showPage('home')" class="logo-font text-5xl mobile-link">Home</a>
-        <a href="javascript:void(0)" onclick="showPage('works')" class="logo-font text-5xl mobile-link">Films</a>
-        <a href="javascript:void(0)" onclick="scrollToContact()" class="logo-font text-5xl mobile-link">Contact</a>
+    <!-- Mobile Menu Overlay with Glassmorphism -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-12 md:hidden text-white">
+        <a href="javascript:void(0)" onclick="showPage('home')" class="logo-font text-5xl mobile-link hover:opacity-50 transition-opacity">Home</a>
+        <a href="javascript:void(0)" onclick="showPage('works')" class="logo-font text-5xl mobile-link hover:opacity-50 transition-opacity">Films</a>
+        <a href="javascript:void(0)" onclick="scrollToContact()" class="logo-font text-5xl mobile-link hover:opacity-50 transition-opacity">Contact</a>
     </div>
 
     <!-- MAIN HOME VIEW -->
@@ -221,8 +222,9 @@
             <div class="absolute inset-0 hero-overlay transition-colors duration-700"></div>
 
             <div class="relative z-10 text-center px-6">
-                <h1 class="text-4xl md:text-[140px] font-light serif tracking-tight text-white leading-none">
-                    Documented <span class="text-xl md:text-5xl align-middle mx-1 md:mx-4 opacity-70">with</span> 
+                <!-- "Documented" font style matched to reference image -->
+                <h1 class="text-4xl md:text-[140px] serif-bold tracking-tight text-white leading-none">
+                    Documented <span class="text-xl md:text-5xl align-middle mx-1 md:mx-4 opacity-70 serif italic">with</span> 
                     <span class="script text-7xl md:text-[180px] lowercase block md:inline mt-12 md:mt-0">Love</span>
                 </h1>
                 <p class="mt-10 md:mt-20 uppercase tracking-[0.6em] text-[9px] md:text-xs font-bold text-white/80">
@@ -335,7 +337,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Grid of all provided images with same reveal interaction -->
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/1280/jpg/8_15_215381-174875322557178.webp" class="reveal-img"></div>
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg00014_15_215381-170565277291509.webp" class="reveal-img"></div>
                 <div class="reveal-img-container aspect-[4/5] shadow-lg"><img src="https://cdn0.weddingwire.in/vendor/5381/3_2/960/jpg/8yg09850_15_215381-170565649477270.webp" class="reveal-img"></div>
@@ -365,8 +366,8 @@
                 <a href="javascript:void(0)" onclick="showPage('works')">Portfolio</a>
                 <a href="javascript:void(0)" onclick="scrollToContact()">Inquire</a>
             </div>
-            <div class="logo-font text-[9px] text-stone-400 tracking-[0.6em] font-medium">
-                CANDID | CINEMATIC | TIMELESS — MUMBAI & NAVI MUMBAI
+            <div class="logo-font text-[9px] text-stone-400 tracking-[0.6em] font-medium uppercase">
+                Candid | Cinematic | Timeless — MUMBAI & NAVI MUMBAI
             </div>
         </div>
     </footer>
